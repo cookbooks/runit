@@ -1,0 +1,38 @@
+{
+  "replacing": {
+
+  },
+  "long_description": "",
+  "attributes": {
+
+  },
+  "maintainer": "37signals",
+  "recommendations": {
+
+  },
+  "license": "Apache v2.0",
+  "recipes": {
+    "runit": ""
+  },
+  "maintainer_email": "sysadmins@37signals.com",
+  "suggestions": {
+
+  },
+  "dependencies": {
+
+  },
+  "conflicting": {
+
+  },
+  "platforms": {
+
+  },
+  "description": "Configures runit",
+  "version": "0.1.0",
+  "name": "runit",
+  "providing": {
+    "runit": [
+
+    ]
+  }
+}
