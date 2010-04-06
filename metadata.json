@@ -1,38 +1,41 @@
 {
-  "replacing": {
+  "groupings": {
 
   },
-  "long_description": "",
-  "attributes": {
-
-  },
-  "maintainer": "37signals",
   "recommendations": {
-
-  },
-  "license": "Apache v2.0",
-  "recipes": {
-    "runit": ""
-  },
-  "maintainer_email": "sysadmins@37signals.com",
-  "suggestions": {
-
-  },
-  "dependencies": {
-
-  },
-  "conflicting": {
 
   },
   "platforms": {
 
   },
-  "description": "Configures runit",
+  "license": "Apache v2.0",
+  "maintainer": "37signals",
+  "suggestions": {
+
+  },
+  "maintainer_email": "sysadmins@37signals.com",
   "version": "0.1.0",
-  "name": "runit",
+  "conflicting": {
+
+  },
+  "description": "Configures runit",
   "providing": {
     "runit": [
 
     ]
+  },
+  "name": "runit",
+  "attributes": {
+
+  },
+  "long_description": "",
+  "recipes": {
+    "runit": ""
+  },
+  "replacing": {
+
+  },
+  "dependencies": {
+
   }
 }
