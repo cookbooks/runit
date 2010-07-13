@@ -1,5 +1,4 @@
 define :runit_service, :directory => nil, :only_if => false, :options => {} do
-  
   params[:directory] ||= node[:runit_sv_dir]
   
   sv_dir_name = "#{params[:directory]}/#{params[:name]}"
@@ -7,6 +6,7 @@ define :runit_service, :directory => nil, :only_if => false, :options => {} do
   
   directory sv_dir_name do
     mode 0755
+    recursive true
     action :create
   end
   
