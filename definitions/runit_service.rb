@@ -23,6 +23,11 @@ define :runit_service, :directory => nil, :only_if => false, :finish_script => f
   params[:directory] ||= node[:runit][:sv_dir]
   params[:active_directory] ||= node[:runit][:service_dir]
   params[:template_name] ||= params[:name]
+  params[:log_template_name] ||= params[:template_name]
+  params[:control].each do |signal|
+    params[:control_template_names][signal] ||= params[:template_name]
+  end
+  params[:finish_script_template_name] ||= params[:template_name]
 
   sv_dir_name = "#{params[:directory]}/#{params[:name]}"
   service_dir_name = "#{params[:active_directory]}/#{params[:name]}"
@@ -76,7 +81,7 @@ define :runit_service, :directory => nil, :only_if => false, :finish_script => f
     owner params[:owner]
     group params[:group]
     mode 0755
-    source "sv-#{params[:template_name]}-log-run.erb"
+    source "sv-#{params[:log_template_name]}-log-run.erb"
     cookbook params[:cookbook] if params[:cookbook]
     if params[:options].respond_to?(:has_key?)
       variables :options => params[:options]
@@ -101,7 +106,7 @@ define :runit_service, :directory => nil, :only_if => false, :finish_script => f
       owner params[:owner]
       group params[:group]
       mode 0755
-      source "sv-#{params[:template_name]}-finish.erb"
+      source "sv-#{params[:finish_script_template_name]}-finish.erb"
       cookbook params[:cookbook] if params[:cookbook]
       if params[:options].respond_to?(:has_key?)
         variables :options => params[:options]
@@ -122,7 +127,7 @@ define :runit_service, :directory => nil, :only_if => false, :finish_script => f
         owner params[:owner]
         group params[:group]
         mode 0755
-        source "sv-#{params[:template_name]}-control-#{signal}.erb"
+        source "sv-#{params[:control_template_names][signal]}-control-#{signal}.erb"
         cookbook params[:cookbook] if params[:cookbook]
         if params[:options].respond_to?(:has_key?)
           variables :options => params[:options]
