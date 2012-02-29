@@ -40,6 +40,12 @@ define :runit_service, :directory => nil, :only_if => false, :finish_script => f
     action :create
   end
 
+  file "#{sv_dir_name}/down" do
+    mode "0644"
+    action :create
+    only_if { params[:down] == true }
+  end
+
   directory "#{sv_dir_name}/log" do
     owner params[:owner]
     group params[:group]
